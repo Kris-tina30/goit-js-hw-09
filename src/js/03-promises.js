@@ -9,7 +9,6 @@ console.log(Number(amount.value));
 console.log(Number(delayStep.value));
 console.log(Number(firstDelay.value));
 
-let timerId = null;
 
 form.addEventListener('submit', onSubmitForm);
 
