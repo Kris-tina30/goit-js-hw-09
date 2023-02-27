@@ -6,7 +6,9 @@ const buttonStop = document.querySelector('[data-stop]');
 const body = document.querySelector('body');
 let timerId = null;
 
-buttonStartClickHandler = event => {
+
+
+const buttonStartClickHandler = event => {
   timerId = setInterval(() => {
     buttonStart.disabled = true;
     buttonStop.disabled = false;
@@ -15,12 +17,11 @@ buttonStartClickHandler = event => {
   }, 1000);
 };
 
-buttonStopClickHandler = event => {
+const buttonStopClickHandler = event => {
   clearInterval(timerId);
 
   buttonStop.disabled = true;
   buttonStart.disabled = false;
 };
-
 buttonStart.addEventListener('click', buttonStartClickHandler);
 buttonStop.addEventListener('click', buttonStopClickHandler);
