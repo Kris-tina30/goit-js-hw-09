@@ -1,21 +1,16 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const form = document.querySelector('.form');
-const firstDelay = document.querySelector('input, [name="delay"]');
-const delayStep = document.querySelector('input, [name="step"]');
-const amount = document.querySelector('input, [name="amount"]');
-
-console.log(Number(amount.value));
-console.log(Number(delayStep.value));
-console.log(Number(firstDelay.value));
-
+const firstDelay = document.querySelector('[name="delay"]');
+const delayStep = document.querySelector('[name="step"]');
+const amount = document.querySelector('input[name="amount"]');
 
 form.addEventListener('submit', onSubmitForm);
 
 function onSubmitForm(event) {
   event.preventDefault();
 
-  for (let i = 0; i <= Number(amount.value); i += 1) {
+  for (let i = 0; i + 1 <= Number(amount.value); i += 1) {
     createPromise(i + 1, Number(firstDelay.value) + Number(delayStep.value) * i)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
